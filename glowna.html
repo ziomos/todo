@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <style>
+        #menu{
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 5%;
+            background-color: #d3d3d3;
+            padding-bottom: 5%;
+            opacity: 0.95;
+            border-radius: 8px;
+        }
+
+        .tab-content{
+            margin-top: 1%;
+            text-align: center;
+
+        }
+        .text{
+            margin-top: 1%;
+            margin-bottom: 1%;
+
+        }
+
+
+
+
+
+    </style>
+
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/bootstrap-theme.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.9.1/dojo/dojo.js" data-dojo-config="has:{'dojo-firebug': true}, parseOnLoad: false, foo: 'bar', async: 1"></script>
+    <script type="text/javascript" src="script.js"></script>
+
+    <title></title>
+</head>
+<body background="ksiazki.jpg">
+
+<div id="menu">
+<!-- Nagłówki -->
+<ul class="nav nav-tabs">
+    <li><a href="#tab1" data-toggle="tab">Dodaj książkę</a></li>
+    <li><a href="#tab2" data-toggle="tab">Szczegóły książki</a></li>
+    <li><a href="#tab3" data-toggle="tab">Usuń książkę</a></li>
+    <li><a href="#tab4" data-toggle="tab">Cały zbiór</a></li>
+    <li><a href="#tab5" data-toggle="tab">Usuń wszystkie książki</a></li>
+</ul>
+
+<!-- Karty -->
+<div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+        <form class="form-horizontal" name="formularz">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Tytuł książki</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control input-sm" name="tytul"/>
+            </div>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-2 control-label">Autor</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control input-sm" name="autor"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Rok wydania</label>
+            <div class="col-sm-4">
+               <input class="form-control input-sm" name="rok"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button id="zapisz" type="submit" class="btn btn-default">Zapisz</button>
+            </div>
+        </div>
+
+        </form>
+
+    </div>
+    <div class="tab-pane" id="tab2">
+
+        <p class="text" ><strong>Tytuły książek</strong></p>
+        <script>odczyt();</script>
+
+        <form class="form-horizontal" name="odczyt">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Klucz z bazy</label>
+                <div class="col-sm-4">
+                    <input class="form-control input-sm" name="klucz"/>
+                </div>
+            </div>
+
+        </form>
+        <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button id="odczyt" type="submit" class="btn btn-default">Odczyt</button>
+        </div>
+        </div>
+        <p class="text" ><strong>Szczegóły książki</strong></p>
+        <p id="dana_odczyt"></p>
+    </div>
+    <div class="tab-pane" id="tab3">
+        <p class="text" ><strong>Tytuły książek</strong></p>
+
+        <script>odczyt();</script>
+        <form class="form-horizontal" name="skasuj">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Klucz z bazy</label>
+                <div class="col-sm-4">
+                    <input class="form-control input-sm" name="klucz"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button id="skasuj" type="submit" class="btn btn-default">Skasuj</button>
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+    <div class="tab-pane" id="tab4">
+        <div id="wynik"></div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button id="wyświetl_wszystko" type="submit" class="btn btn-default">Wszystkie tytuły</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="tab-pane" id="tab5">
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button id="usun" type="submit" class="btn btn-default">Usuń wszystkie wpisy</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+
+</body>
+</html>
